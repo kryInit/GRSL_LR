@@ -1,0 +1,46 @@
+\section*{Appendix: Experimental Settings}
+As ground-truth HS images, we adopt three HS image dataset: \textit{Jasper Ridge}\footnote{\url{https://rslab.ut.ac.ir/data}} cropped to size $100 \times 100 \times 198$, \textit{Pavia University}\footnote{\url{https://www.ehu/ccwintco/index/php/Hyperspectral_Remote_Sensing_Scenes}} cropped to size $120 \times 120 \times 98$, and \textit{Beltsville}\footnote{\url{https://www.spectir.com/contact#free-data-samples}} cropped to size $100 \times 100 \times 128$.
+All the intensities of three HS images were normalized within the range $[0, 1]$.
+
+HS images are often degraded by a mixture of various types of noise in real-world scenarios.
+Thus, in the experiments, we consider the following eight cases of noise contamination:
+\begin{itemize}
+	\setlength{\leftskip}{18pt}
+	\item [\revise{Case 1:}] \revise{The observed HS image is contaminated by only white Gaussian noise with the standard deviation $\StanDevGauss = 0.05$.}
+	\item [Case 2:] The observed HS image is contaminated by white Gaussian noise with the standard deviation $\StanDevGauss = 0.05$ and salt-and-pepper noise with the rate $\RateSparse = 0.05$.
+	\item [Case 3:] The observed HS image is contaminated by white Gaussian noise with the standard deviation $\StanDevGauss = 0.1$ and salt-and-pepper noise with the rate $\RateSparse = 0.05$.
+	\item [\revise{Case 4:}] \revise{The observed HS image is contaminated by only vertical stripe noise whose intensity is uniformly random in the range $[-0.5, 0.5]$ with the rate $\RateStripe = 0.05$.}
+	\item [Case 5:] The observed HS image is contaminated by white Gaussian noise with the standard deviation $\StanDevGauss = 0.05$ and vertical stripe noise whose intensity is uniformly random in the range $[-0.5, 0.5]$ with the rate $\RateStripe = 0.05$.
+	\item [Case 6:] The observed HS image is contaminated by white Gaussian noise with the standard deviation $\StanDevGauss = 0.1$ and vertical stripe noise whose intensity is uniformly random in the range $[-0.5, 0.5]$ with the rate $\RateStripe = 0.05$.
+	\item [Case 7:] The observed HS image is contaminated by white Gaussian noise with the standard deviation $\StanDevGauss = 0.05$, salt-and-pepper noise with the rate $\RateSparse = 0.05$, and vertical stripe noise whose intensity is uniformly random in the range $[-0.5, 0.5]$ with the rate $\RateStripe = 0.05$.
+	\item [Case 8:] The observed HS image is contaminated by white Gaussian noise with the standard deviation $\StanDevGauss = 0.1$, salt-and-pepper noise with the rates $\RateSparse = 0.05$, and vertical stripe noise whose intensity is uniformly random in the range $[-0.5, 0.5]$ with the rates $\RateStripe = 0.05$.
+\end{itemize}
+
+The block size of $\SSSTTV$ was set to $10 \times 10 \times \NumBand$.
+The radii $\RadiusSparse$, $\RadiusStripe$, and $\RadiusFidel$ were set as follows:
+\begin{equation}
+	\label{eq:RL_1_Expt_RadiusSet}
+	\RadiusSparse = \ParamsRadius \tfrac{\NumAll \RateSparse}{2}, \:
+	\RadiusStripe = \ParamsRadius \tfrac{0.5 \NumAll \RateStripe (1 - \RateSparse)}{2}, \: \RadiusFidel = \ParamsRadius \sqrt{\StanDevGauss^2 \NumAll (1 - \RateSparse)},
+\end{equation}
+where the parameter $\ParamsRadius$ was set to $0.95$. The hyperparameters, including the comparison methods, are shown in Table~\ref{tab:RL1_6_HyperParam}.
+For specific cases, adjustments were made to improve the accuracy of the parameter settings. In Case 1, where only Gaussian noise is present, the noise concentrates more on the corresponding term compared to mixed noise cases. To reflect this, $\ParamsRadius$ was set to $0.98$. Similarly, in Case 4, where only Stripe noise is present, $\ParamsRadius$ was also set to $0.98$ for the same reason. Furthermore, in Case 4, the fidelity term $\| v - u - t \|_{2}$ becomes zero, which can lead to instability in the solution. To address this, $\RadiusFidel$ was fixed to $0.01$ to ensure stability.
+The stopping criterion of Alg.~1 were set as follows:
+\begin{equation}
+	\label{eq:RL_1_Expt_StopCri_simulated}
+	\frac{\| \HSIClean^{(\IndexAlg+1)} - \HSIClean^{(\IndexAlg)} \|_2}{\| \HSIClean^{(\IndexAlg)}\|_{2}} < 1.0 \times 10^{-5}.
+\end{equation}
+
+
+For the quantitative evaluation, we employed the mean peak signal-to-noise ratio (MPSNR):
+\begin{equation}
+	\label{eq:RL_1_Expt_MPSNR}
+	\mathrm{MPSNR} = \frac{1}{\NumBand} \sum_{\IndexBand=1}^{\NumBand} 10\log_{10}\frac{\NumVert \NumHori}{\|\HSIClean_{\IndexBand} - \bar{\HSIClean}_{\IndexBand}\|_{2}^{2}},
+\end{equation}
+and the mean structural similarity index (MSSIM)~\cite{Wang2004SSIM}:
+\begin{equation}
+	\label{eq:RL_1_Expt_MSSIM}
+	\mathrm{MSSIM} = \frac{1}{\NumBand} \sum_{\IndexBand=1}^{\NumBand} \mathrm{SSIM}(\HSIClean_{\IndexBand}, \bar{\HSIClean}_{\IndexBand}),
+\end{equation}
+where $\HSIClean_{\IndexBand}$ and $\bar{\HSIClean}_{\IndexBand}$ are the $\IndexBand$-th band of the ground true HS image $\HSIClean$ and the estimated HS image $\bar{\HSIClean}$, respectively.
+Generally, higher MPSNR and MSSIM values are corresponding to better denoising performances. Because the boundary conditions are circulant, we evaluate them by cutting off the first and last three bands. 

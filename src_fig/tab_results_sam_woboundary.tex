@@ -1,0 +1,75 @@
+\begin{table*}[t]
+	\begin{center}
+		\caption{SAMs of the Simulated HS Image Denoising Results.}
+		\label{tab:SAM_woboundary}
+		\scalebox{0.75}{
+			\begin{tabular}{cc ccccccccccc}
+				\toprule
+				Image & Noise & SSTV~\cite{Aggarwal2016SSTV} & HSSTV1~\cite{Takeyama2020HSSTV} & HSSTV2~\cite{Takeyama2020HSSTV} & $\llHTV$~\cite{Wang2021l0l1HTV} & STV~\cite{Lefkimmiatis2015STV} & SSST~\cite{Kurihara2017SSST} & LRTDTV~\cite{Wang2018LRTDTV} & FGSLR~\cite{Chen2022FGSLR} & TPTV~\cite{Chen2023TPTV} & FastHyMix~\cite{Zhuang2023FastHyMix} & $\SSSTTV$ \\
+				\cmidrule(lr){1-13} 
+				
+				\multirow{8}{*}{Jasper Ridge} 
+				& Case 1 & 
+				5.838 & 5.172 & 6.094 & 6.938 & 8.849 & \underline{4.836} & 5.969 & 6.264 & 8.482 & \textbf{3.649} & 6.673 \\ 
+				& Case 2 & 
+				4.206 & \textbf{3.776} & 4.429 & 5.019 & 7.050 & \underline{3.934} & 4.109 & 5.443 & 5.156 & 10.84 & 4.217 \\ 
+				& Case 3 & 
+				6.066 & \textbf{5.284} & 6.623 & 7.284 & 9.098 & \underline{5.685} & 6.031 & 6.317 & 9.191 & 16.25 & 5.713 \\ 
+				& Case 4 & 
+				2.920 & \underline{2.856} & 3.664 & 2.892 & \textbf{2.853} & 2.904 & 4.517 & 2.952 & 3.405 & 8.152 & 3.038 \\ 
+				& Case 5 & 
+				4.758 & \underline{4.318} & 5.075 & 5.089 & 7.156 & \textbf{3.723} & 6.506 & 5.610 & 6.577 & 7.897 & 4.373 \\ 
+				& Case 6 & 
+				7.780 & 6.969 & 7.894 & 7.737 & 9.612 & \textbf{5.082} & 8.837 & 6.737 & 9.780 & 8.345 & \underline{6.680} \\ 
+				& Case 7 & 
+				4.278 & \textbf{3.908} & 4.694 & 5.158 & 7.519 & \underline{4.271} & 6.547 & 5.637 & 6.032 & 6.062 & 4.316 \\ 
+				& Case 8 & 
+				5.952 & \textbf{5.295} & 6.868 & 7.304 & 9.551 & 6.289 & 8.541 & 6.787 & 9.778 & 24.84 & \underline{5.867} \\ 
+				
+				\cmidrule(lr){1-13} 
+				
+				\multirow{8}{*}{Pavia University} 
+				& Case 1 & 
+				4.086 & \underline{3.899} & 4.436 & 4.478 & 7.347 & 3.936 & 6.320 & 5.017 & 7.932 & \textbf{3.271} & 4.264 \\ 
+				& Case 2 & 
+				3.156 & \underline{2.906} & 3.231 & 3.409 & 6.047 & 3.287 & 4.302 & 3.771 & 4.179 & 3.081 & \textbf{2.837} \\ 
+				& Case 3 & 
+				5.354 & \underline{4.319} & 5.208 & 5.565 & 7.572 & 4.504 & 6.489 & 5.314 & 8.271 & \textbf{3.983} & 4.560 \\ 
+				& Case 4 & 
+				2.677 & 2.288 & \textbf{2.051} & 2.541 & \underline{2.087} & 2.238 & 5.768 & 2.207 & 4.149 & 5.599 & 2.244 \\ 
+				& Case 5 & 
+				3.105 & \underline{3.029} & 3.401 & 3.159 & 5.984 & 3.112 & 7.055 & 3.774 & 5.223 & 5.342 & \textbf{2.755} \\ 
+				& Case 6 & 
+				5.343 & 5.058 & 5.554 & 4.945 & 7.716 & \textbf{3.991} & 9.042 & 5.541 & 8.862 & 5.892 & \underline{4.688} \\ 
+				& Case 7 & 
+				3.117 & \textbf{2.916} & 3.245 & 3.463 & 6.270 & 3.535 & 7.257 & 3.849 & 5.295 & 7.582 & \underline{2.971} \\ 
+				& Case 8 & 
+				5.335 & \textbf{4.322} & 5.126 & 5.650 & 7.816 & 4.965 & 9.016 & 5.455 & 9.297 & 7.799 & \underline{4.607} \\ 
+				
+				\cmidrule(lr){1-13} 
+				
+				\multirow{8}{*}{Beltsville} 
+				& Case 1 & 
+				3.802 & 3.388 & 3.973 & 4.099 & 4.960 & \underline{3.008} & 4.712 & 3.629 & 5.545 & \textbf{2.221} & 3.704 \\ 
+				& Case 2 & 
+				3.047 & \underline{2.660} & 3.151 & 3.288 & 4.209 & 2.666 & 2.719 & 3.238 & 3.013 & 2.943 & \textbf{2.489} \\ 
+				& Case 3 & 
+				4.706 & \underline{3.634} & 4.807 & 4.964 & 4.881 & 4.033 & 4.879 & 3.677 & 5.843 & \textbf{3.354} & 4.208 \\ 
+				& Case 4 & 
+				2.486 & 2.117 & 2.464 & 2.541 & \underline{1.910} & 2.194 & 3.732 & \textbf{1.787} & 2.946 & 3.800 & 2.629 \\ 
+				& Case 5 & 
+				2.864 & \underline{2.683} & 3.013 & 3.015 & 4.615 & 2.690 & 5.767 & 3.261 & 3.968 & 4.329 & \textbf{2.470} \\ 
+				& Case 6 & 
+				4.539 & 4.169 & 4.635 & 4.381 & 5.589 & \textbf{3.381} & 7.922 & \underline{3.733} & 6.062 & 4.646 & 3.752 \\ 
+				& Case 7 & 
+				2.981 & \underline{2.711} & 3.121 & 3.317 & 4.761 & 3.156 & 5.867 & 3.285 & 4.060 & 3.412 & \textbf{2.692} \\ 
+				& Case 8 & 
+				4.620 & \textbf{3.683} & 4.671 & 4.991 & 5.209 & 4.843 & 8.031 & \underline{3.774} & 6.476 & 4.906 & 4.112 \\ 
+				
+				\bottomrule
+			\end{tabular}
+				
+		}
+	\end{center}
+	% \vspace{-3mm}
+\end{table*}

@@ -1,0 +1,10 @@
+\begin{point}
+	The first sentence states: "This paper proposes a computationally efficient algorithm to address the Full-Waveform Inversion (FWI) problem with a Total Variation (TV) constraint …"
+	This claim is misleading. While the proposed method may be beneficial for linear inverse problems, where gradient calculations are inexpensive and the computational cost is dominated by TV regularization, this is not the case for FWI. In FWI, the leading-order cost is dominated by gradient computation, which primarily stems from solving the PDEs. Consequently, the overhead of implementing TV regularization, even with an inner loop, is negligible. In other words, the inner loop for TV regularization is not a computational bottleneck in FWI.
+\end{point}
+
+% Our reply
+\begin{reply}
+AAA
+
+\end{reply}

@@ -1,0 +1,11 @@
+**/*.synctex.gz
+**/*.log
+**/*.blg
+**/*.bbl
+**/*.aux
+**/*.pdf
+!out/*.pdf
+
+
+.idea
+.DS_Store

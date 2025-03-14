@@ -1,0 +1,30 @@
+\begin{table}[!t]
+    \begin{center}
+        \caption{Computational Complexity of Each Operation.}
+        \label{tab:ComputationalComplexity}
+        		\scalebox{0.85}{
+        \begin{tabular}{cc}
+            \toprule
+                Operation & $\mathcal{O}$-notation \\
+            \cmidrule(lr){1-2}
+            % \addlinespace[0.5mm]
+            \vspace{-0.5mm}
+               $\DiffOpSp \OperationVec, (\DiffOpSp \in \RealSpace{2\NumElement \times \NumElement}, \OperationVec \in \RealSpace{\NumElement})$ & $\Order{\NumElement}$ \\
+               $\DiffOpSpT \OperationVec, (\DiffOpSpT \in \RealSpace{\NumElement \times 2\NumElement}, \OperationVec \in \RealSpace{2\NumElement})$ & $\Order{\NumElement}$ \\
+               $\DiffOpBand \OperationVec, (\DiffOpBand \in \RealSpace{\NumElement \times \NumElement}, \OperationVec \in \RealSpace{\NumElement})$ & $\Order{\NumElement}$ \\
+               $\DiffOpBandT \OperationVec, (\DiffOpBandT \in \RealSpace{\NumElement \times \NumElement}, \OperationVec \in \RealSpace{\NumElement})$ & $\Order{\NumElement}$ \\
+               $\DiffOpVert \OperationVec, (\DiffOpVert \in \RealSpace{\NumElement \times \NumElement}, \OperationVec \in \RealSpace{\NumElement})$ & $\Order{\NumElement}$ \\
+               $\DiffOpVertT \OperationVec, (\DiffOpVertT \in \RealSpace{\NumElement \times \NumElement}, \OperationVec \in \RealSpace{\NumElement})$ & $\Order{\NumElement}$ \\ 
+               $\ExpantionOp{\IndexBlock} \OperationVec, (\ExpantionOp{\IndexBlock} \in \RealSpace{\NumBlockVertical \NumBlockHorizontal \NumBand \times \NumElement}, \OperationVec \in \RealSpace{\NumElement})$ & $\Order{\NumBlockVertical \NumBlockHorizontal \NumBand}$ \\
+               $\ExpantionOp{\IndexBlock}^{\top} \OperationVec, (\ExpantionOp{\IndexBlock}^{\top} \in \RealSpace{\NumElement \times \NumBlockVertical \NumBlockHorizontal \NumBand}, \OperationVec \in \RealSpace{\NumBlockVertical \NumBlockHorizontal \NumBand})$ & $\Order{\NumBlockVertical \NumBlockHorizontal \NumBand}$ & $\Order{\NumBlockVertical \NumBlockHorizontal \NumBand}$ \\
+               $\Projection{\SetRange}(\cdot)$ in~\eqref{eq:prox_box_constraint} & $\Order{\NumElement}$\\
+               $\prox_{\ParamStepsize{\NoiseSparse} \FuncIndicator{\BallSparse}} (\cdot)$ in~\cite{L1ball2016} & $\Order{\NumElement \log{\NumElement}}$ \\
+               $\prox_{\ParamStepsize{\NoiseStripe} \FuncIndicator{\BallStripe}} (\cdot)$ in~\cite{L1ball2016} & $\Order{\NumElement \log{\NumElement}}$ \\
+               $\Projection{\BallFidel} (\cdot)$ in~\eqref{eq:prox_l2ball_constraint} & $\Order{\NumElement}$\\
+               $\prox_{\ParamStepsize{} \| \cdot \|_{*}} (\cdot)$ in~\eqref{eq:prox_nuclear_norm} & $\Order{\NumBlock \NumBlockVertical \NumBlockHorizontal \NumBand \min({\NumBlockVertical \NumBlockHorizontal, 2 \NumBand})}$ \\
+            \bottomrule
+        \end{tabular}
+        		}
+    \end{center}
+    \vspace{-3mm}
+\end{table}
