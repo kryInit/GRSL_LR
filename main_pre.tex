@@ -1,0 +1,88 @@
+\documentclass[journal]{IEEEtran}
+\ifCLASSINFOpdf
+\else
+\fi
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[cmex10]{amsmath}
+\usepackage{amssymb,amsfonts}
+\interdisplaylinepenalty=2500
+\usepackage{dblfloatfix}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage[numbers,compress]{natbib}
+\usepackage{texnames}
+\usepackage{bm,bbm}
+\usepackage{orcidlink}
+\usepackage{latexsym}
+\usepackage{array}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\input{src_pre/command}
+
+\begin{document}
+    \input{src_pre/control-bibtex}
+
+    \title{Efficient and Accurate Full-Waveform Inversion with Total Variation Constraint}
+
+	\author{
+        Yudai Inada, Shingo Takemoto, Student Member, IEEE, and Shunsuke Ono, Member, IEEE
+%		\IEEEauthorblockN{Yudai INADA}
+%		\IEEEauthorblockA{\textit{Institute of Science Tokyo}\\ inada.y.de71@m.isct.ac.jp}
+
+%		\and
+
+%		\IEEEauthorblockN{Shingo TAKEMOTO}
+%		\IEEEauthorblockA{\textit{Institute of Science Tokyo}\\ takemoto.s.e908@m.isct.ac.jp}
+
+%		\and
+
+%		\IEEEauthorblockN{Shunsuke ONO}
+%		\IEEEauthorblockA{\textit{Institute of Science Tokyo}\\ ono.s.5af2@m.isct.ac.jp}
+
+		\input{src_pre/acknowledgement}
+	}
+
+    \markboth{IEEE Geoscience and remote sensing letters, VOL. XX, 2025}
+    {Shell \MakeLowercase{\textit{et al.}}: Efficient and Accurate Full-Waveform Inversion with Total Variation Constraint}
+
+    \maketitle
+
+    \begin{abstract} \input{src_pre/0-summary} \end{abstract}
+
+    \begin{IEEEkeywords} full-waveform inversion, total variation, primal-dual splitting method. \end{IEEEkeywords}
+
+    \IEEEpeerreviewmaketitle
+
+    \section{Introduction}      \label{sec:Introduction}    \input{src_pre/1-introduction}
+
+    \section{Preliminaries}     \label{sec:Preliminaries}   \input{src_pre/2-preliminaries}
+
+    \section{Proposed Method}   \label{sec:ProposedMethod}  \input{src_pre/3-proposed-method}
+
+    \section{Experiments}       \label{sec:Experiments}     \input{src_pre/4-experiments}
+
+    \section{Conclusion}        \label{sec:Conclusion}      \input{src_pre/5-conclusion}
+
+    \ifCLASSOPTIONcaptionsoff
+      \newpage
+    \fi
+
+    \newpage
+
+    \begin{spacing}{1}
+        \small
+        \bibliographystyle{IEEEtranN}
+        \bibliography{references}
+    \end{spacing}
+\end{document}
